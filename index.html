@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elysian Atelier | Order your magazine</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#fbf4f2;--card:#fffbfa;--ink:#1c2a4a;--mute:#7e8093;--line:#efdcdf;--acc:#24407a;--soft:#dcebf9;--on:#fff;--bl:#fbe3e9;--rose:#c4637f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14192a;--card:#1d2338;--ink:#f3ecdd;--mute:#a9adbb;--line:#323a55;--acc:#9cc3f0;--soft:#26324d;--on:#14192a;--bl:#3a2a3c;--rose:#e8a0b8}}
+:root[data-theme="dark"]{--bg:#14192a;--card:#1d2338;--ink:#f3ecdd;--mute:#a9adbb;--line:#323a55;--acc:#9cc3f0;--soft:#26324d;--on:#14192a;--bl:#3a2a3c;--rose:#e8a0b8}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Nunito,system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:620px;margin:0 auto;padding:26px 16px 60px}
+.hero{text-align:center;padding:18px 8px 8px}
+.brand{font:italic 500 15px "Cormorant Garamond",Georgia,serif;letter-spacing:.25em;text-transform:uppercase;color:var(--rose)}
+h1{font:600 40px/1.1 "Cormorant Garamond",Georgia,"Times New Roman",serif;margin:6px 0 10px;color:var(--acc)}
+.lead{color:var(--mute);margin:0 auto;max-width:440px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 18px;margin-top:16px;box-shadow:0 6px 22px rgba(36,64,122,.08)}
+h2{font:600 24px "Cormorant Garamond",Georgia,serif;margin:0 0 2px;color:var(--acc)}
+.n{font:italic 500 14px "Cormorant Garamond",Georgia,serif;color:var(--rose);letter-spacing:.1em}
+.q{margin-top:16px}
+label.l{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.h{font-weight:400;color:var(--mute);font-size:13px}
+input[type=text],input[type=tel],input[type=date],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:11px 13px;outline:none}
+input:focus,textarea:focus{border-color:var(--acc)}
+textarea{resize:vertical;min-height:96px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-block;border:1.5px solid transparent;background:var(--bl);border-radius:99px;padding:7px 14px;font-size:14px;transition:.15s}
+.tag{font-style:normal;font-size:11px;font-weight:600;border-radius:99px;padding:1px 8px;margin-left:4px;background:var(--rose);color:var(--on)}
+.chips input:checked+span .tag{background:var(--on);color:var(--acc)}
+.chips input:checked+span{background:var(--acc);color:var(--on);border-color:var(--acc)}
+.chips input:focus-visible+span{outline:2px solid var(--acc);outline-offset:2px}
+.terms{background:var(--soft);border-radius:14px;padding:14px 16px;font-size:14px;margin-top:14px}
+.terms ul{margin:6px 0 0;padding-left:18px}.terms li{margin:4px 0}
+.ck{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:14px;cursor:pointer}
+.ck input{margin-top:4px;accent-color:var(--acc);width:18px;height:18px;flex:none}
+button{font:inherit;font-weight:600;border:0;border-radius:99px;background:var(--acc);color:var(--on);padding:15px 22px;width:100%;margin-top:20px;cursor:pointer;font-size:17px;box-shadow:0 8px 20px rgba(36,64,122,.28)}
+button.s{background:transparent;color:var(--acc);box-shadow:none;border:1.5px solid var(--acc);margin-top:10px;font-size:15px;padding:11px}
+#err{color:#c0392b;text-align:center;margin-top:12px;font-size:14px;min-height:20px}
+#done{display:none;text-align:center}
+#done p{color:var(--mute)}
+footer{text-align:center;margin-top:26px;color:var(--mute);font-size:14px}
+footer a{color:var(--acc);font-weight:600;text-decoration:none}
+</style></head><body><main>
+<div class="hero"><div class="brand">The Elysian Atelier ♡</div>
+<h1>Every story deserves its own little magazine</h1>
+<p class="lead">Tell me about your person, the occasion and your vision. I'll review your brief and confirm your quote and timeline. ♡</p></div>
+
+<form id="f" novalidate>
+<div class="card"><div class="n">01</div><h2>A little about you</h2>
+<div class="q"><label class="l" for="name">Your name</label><input type="text" id="name" autocomplete="name"></div>
+<div class="q"><label class="l" for="num">WhatsApp number <span class="h">so I can reach you about your order</span></label><input type="tel" id="num" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210"></div>
+<div class="q"><label class="l">How did you find Elysian Atelier?</label><div class="chips" id="src"></div></div></div>
+
+<div class="card"><div class="n">02</div><h2>The person &amp; occasion</h2>
+<div class="q"><label class="l" for="rec">Who is the magazine for? <span class="h">name or nickname</span></label><input type="text" id="rec"></div>
+<div class="q"><label class="l">What's the occasion?</label><div class="chips" id="occ"></div></div>
+<div class="q"><label class="l" for="date">When do you need it by?</label><input type="date" id="date"></div>
+</div>
+
+<div class="card"><div class="n">03</div><h2>Let's make it personal</h2>
+<div class="q"><label class="l">What would you like?</label><div class="chips" id="what"></div></div>
+<div class="q"><label class="l">Which aesthetic feels right?</label><div class="chips" id="aes"></div></div>
+<div class="q"><label class="l">Choose your edition <span class="h">starting prices, exact pages and final quote confirmed after your brief</span></label><div class="chips" id="len"></div></div>
+<div class="q"><label class="l" for="col">Favourite colours, themes or interests <span class="h">optional</span></label><input type="text" id="col" placeholder="purple, books, travel, a favourite show…"></div>
+<div class="q"><label class="l" for="story">Tell me their story ♡</label><textarea id="story" placeholder="Their personality, memories, inside jokes, favourite things, what makes them special…"></textarea></div>
+<div class="q"><label class="l" for="must">Must-have pages or special ideas <span class="h">optional</span></label><textarea id="must" placeholder="Crossword, quiz, playlist, letters, fun facts…"></textarea></div>
+<div class="q"><label class="l" for="avoid">Anything to include or avoid? <span class="h">optional</span></label><textarea id="avoid" placeholder="Specific wording, sensitive topics, spellings…"></textarea></div></div>
+
+<div class="card"><div class="n">04</div><h2>Photos</h2>
+<div class="q"><label class="l">Do you have photos ready?</label><div class="chips" id="ph"></div>
+<p class="h" style="margin:8px 0 0">After sending your brief on WhatsApp, share your photos and inspiration right in the same chat.</p></div></div>
+
+<div class="card"><div class="n">05</div><h2>Before we begin</h2>
+<div class="terms"><b>Bookings, payments &amp; delivery ♡</b><ul>
+<li><b>50% advance</b> of the agreed total confirms your booking and starts the work.</li>
+<li>The <b>remaining 50%</b> is payable when you receive your completed order.</li>
+<li>One round of minor revisions is included. Extra revisions or brief changes may cost extra, told to you beforehand.</li>
+<li>Prices shown are starting prices. Your final quote depends on your brief, extras and delivery.</li>
+<li>Delivery date and any delivery charges are confirmed before your order is finalised.</li>
+<li>Please tell me early about cancellations. Work done and costs incurred will be discussed fairly.</li>
+<li>Your booking is confirmed once you approve the quote and pay the advance.</li></ul></div>
+<label class="ck"><input type="checkbox" id="c1"><span>I've read and understood the booking, payment and delivery terms.</span></label>
+<label class="ck"><input type="checkbox" id="c2"><span>I consent to my photos and stories being used only to create my order, and not shared publicly without my permission.</span></label>
+<button type="submit">Send my brief on WhatsApp ♡</button>
+<div id="err" role="alert"></div></div>
+</form>
+
+<div class="card" id="done"><h2>Almost there ♡</h2>
+<p>WhatsApp should have opened with your brief ready to send. Tap send, then share your photos in the same chat.</p>
+<p>If nothing opened, copy your brief and message me directly.</p>
+<button class="s" id="cp" type="button">Copy my brief</button>
+<button class="s" id="wa" type="button">Open WhatsApp again</button></div>
+
+<footer>Follow along on <a href="https://www.instagram.com/the_elysian_atelier" target="_blank" rel="noopener">@the_elysian_atelier</a> ♡</footer>
+<script>
+var NUM='919205667277';
+var TAGS={'Little Love Note · 8 pages · from ₹599':'New','Sweet Keepsake · 12–16 pages · from ₹999':'Most loved'};
+var SETS={src:['Instagram','Friend / referral','Previous client','Other'],
+occ:['Birthday','Anniversary','Friendship','Relationship milestone','Graduation','Just because','Other'],
+what:['Personalised magazine','Magazine + gift extras','Other custom gift'],
+aes:['Pinterest-y & editorial','Romantic & sentimental','Funny & chaotic','Minimal & classy','Pop culture mag','Vintage / retro','Surprise me!'],
+len:['Little Love Note · 8 pages · from ₹599','Sweet Keepsake · 12–16 pages · from ₹999','Dreamy Edition · 20–24 pages · from ₹1,249','The Forever Issue · 32 pages · from ₹1,499'],
+ph:['Yes, ready to send','Still collecting','Need help choosing']};
+var $=function(i){return document.getElementById(i)};
+Object.keys(SETS).forEach(function(k){
+  SETS[k].forEach(function(v){
+    var l=document.createElement('label'),i=document.createElement('input'),s=document.createElement('span');
+    i.type='radio';i.name=k;i.value=v;s.textContent=v;if(TAGS[v]){var t=document.createElement('em');t.className='tag';t.textContent=TAGS[v];s.appendChild(document.createTextNode(' '));s.appendChild(t)}l.appendChild(i);l.appendChild(s);$(k).appendChild(l);
+  });
+});
+function pick(k){var e=document.querySelector('input[name='+k+']:checked');return e?e.value:''}
+var msg='';
+function build(){
+  var L=['Hi Elysian Atelier! ♡ I\'d like to enquire about a custom magazine.','',
+  '*Name:* '+$('name').value.trim(),
+  '*WhatsApp:* '+$('num').value.trim(),
+  '*Found you via:* '+pick('src'),'',
+  '*For:* '+$('rec').value.trim(),
+  '*Occasion:* '+pick('occ'),
+  '*Needed by:* '+($('date').value||'Not sure yet'),
+  '',
+  '*Order:* '+pick('what'),
+  '*Aesthetic:* '+pick('aes'),
+  '*Edition:* '+pick('len')];
+  if($('col').value.trim())L.push('*Colours/themes:* '+$('col').value.trim());
+  L.push('','*Their story:*',$('story').value.trim());
+  if($('must').value.trim())L.push('','*Must-haves:*',$('must').value.trim());
+  if($('avoid').value.trim())L.push('','*Include/avoid:*',$('avoid').value.trim());
+  L.push('','*Photos:* '+pick('ph'),'','I\'ve read and agree to the 50% advance / 50% on receipt terms. ♡');
+  return L.join('\n');
+}
+function openWA(){window.open('https://wa.me/'+NUM+'?text='+encodeURIComponent(msg),'_blank')}
+$('f').onsubmit=function(e){
+  e.preventDefault();
+  var miss=[];
+  if(!$('name').value.trim())miss.push('your name');
+  if($('num').value.replace(/\D/g,'').length<10)miss.push('a valid WhatsApp number');
+  if(!$('rec').value.trim())miss.push('who it\'s for');
+  ['src','occ','what','aes','len','ph'].forEach(function(k){if(!pick(k))miss.push({src:'how you found me',occ:'the occasion',what:'what you\'d like',aes:'an aesthetic',len:'an edition',ph:'photo status'}[k])});
+  if(!$('story').value.trim())miss.push('their story');
+  if(!$('c1').checked||!$('c2').checked)miss.push('both confirmations');
+  if(miss.length){$('err').textContent='Please add: '+miss.join(', ')+'.';return}
+  $('err').textContent='';
+  msg=build();
+  $('f').style.display='none';$('done').style.display='block';window.scrollTo(0,0);
+  openWA();
+};
+$('wa').onclick=openWA;
+$('cp').onclick=function(){
+  var b=$('cp');
+  function ok(){b.textContent='Copied ♡'}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(msg).then(ok,function(){b.textContent='Select & copy manually'})}
+  else{b.textContent='Select & copy manually'}
+};
+</script></main></body></html>
